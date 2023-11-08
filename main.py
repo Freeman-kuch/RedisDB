@@ -13,7 +13,7 @@ r = redis.Redis(
     health_check_interval=5
 )
 
-r_url = redis.from_url("redis://default:hndMjjoMcnK4PONLa5bkn1anKmgKNAAE@viaduct.proxy.rlwy.net:51557")
+r_url = redis.from_url(os.environ.get("CACHE_REDIS_URL"))
 """this is an alternative way to establish a connection with redis server, localhost or what not"""
 
 
