@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 
 r = redis.Redis(
-    host= os.environ.get("CACHE_REDIS_HOST"),
-    port= os.environ.get("CACHE_REDIS_PORT"),
-    password= os.environ.get("CACHE_REDIS_PASSWORD"),
-    username= "default",
-    decode_responses= True,
+    host=os.environ.get("CACHE_REDIS_HOST"),
+    port=os.environ.get("CACHE_REDIS_PORT"),
+    password=os.environ.get("CACHE_REDIS_PASSWORD"),
+    username="default",
+    decode_responses=True,
     health_check_interval=5
 )
 
@@ -18,6 +18,8 @@ r_url = redis.from_url(os.environ.get("CACHE_REDIS_URL"))
 
 
 r_url.set("name", "freeman")
+r_url.append("name", " okwuchi")
+print(r_url.exists("location"))
 
 
 if __name__ == "__main__":
