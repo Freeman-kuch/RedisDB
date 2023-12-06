@@ -4,7 +4,7 @@ import config
 
 
 app = Flask(__name__)
-app.config.from_object(config.config)
+app.config.from_object(config.Config)
 cache = Cache(app)
 
 
@@ -18,7 +18,7 @@ def index(foo: str = None):
 
 @app.route("/")
 @cache.memoize(timeout=20)
-def index(foo: str = None):
+def home(foo: str = None):
     if not foo:
         foo = cache.set("foo", "foo")
     return f"just to remember {foo} how this is "

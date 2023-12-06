@@ -23,4 +23,5 @@ print(r_url.exists("location"))
 
 
 if __name__ == "__main__":
-    print(r.get("name"))
+    # print(r.get("name"))
+    print("we have just imported this module")
